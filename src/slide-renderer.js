@@ -87,15 +87,24 @@ function footer(mode = 'warm', pageNum = 1, totalPages = 10) {
  */
 function terminal(title, lines, opts = {}) {
   const width = opts.width || '100%';
+  const fullHeight = opts.fullHeight || false;
+  const fontSize = opts.fontSize || DESIGN.fontSize.code;
+  const lineHeight = opts.lineHeight || '1.8';
   const lineHTML = lines.map(l => {
-    if (l.type === 'prompt') return `<div style="margin-bottom:4px;"><span style="color:${D.termPrompt};font-weight:500;">❯</span> <span style="color:${D.termText};font-weight:500;">${l.text}</span></div>`;
-    if (l.type === 'input') return `<div style="margin-bottom:2px;"><span style="color:${D.termComment};">  </span><span style="color:${D.termText};">${l.text}</span></div>`;
-    if (l.type === 'output') return `<div style="margin-bottom:2px;"><span style="color:${D.termGreen};">  ✓</span> <span style="color:${D.termYellow};font-weight:500;">${l.highlight || ''}</span> <span style="color:${D.termComment};">${l.text}</span></div>`;
-    if (l.type === 'comment') return `<div style="color:${D.termComment};margin-bottom:2px;">  # ${l.text}</div>`;
-    if (l.type === 'blank') return '<div style="height:12px;"></div>';
-    if (l.type === 'progress') return `<div style="margin-bottom:2px;"><span style="color:${D.termGreen};">  ●</span> <span style="color:${D.termText};">${l.text}</span></div>`;
-    return `<div style="color:${D.termText};margin-bottom:2px;">${l.text}</div>`;
+    if (l.type === 'prompt') return `<div style="margin-bottom:6px;"><span style="color:${D.termPrompt};font-weight:600;">❯</span> <span style="color:${D.termText};font-weight:500;">${l.text}</span></div>`;
+    if (l.type === 'input') return `<div style="margin-bottom:3px;"><span style="color:${D.termComment};">  </span><span style="color:${D.termText};">${l.text}</span></div>`;
+    if (l.type === 'output') return `<div style="margin-bottom:3px;"><span style="color:${D.termGreen};">  ✓</span> <span style="color:${D.termYellow};font-weight:500;">${l.highlight || ''}</span> <span style="color:${D.termComment};">${l.text}</span></div>`;
+    if (l.type === 'comment') return `<div style="color:${D.termComment};margin-bottom:3px;">  # ${l.text}</div>`;
+    if (l.type === 'blank') return '<div style="height:14px;"></div>';
+    if (l.type === 'progress') return `<div style="margin-bottom:3px;"><span style="color:${D.termGreen};">  ●</span> <span style="color:${D.termText};">${l.text}</span></div>`;
+    if (l.type === 'divider') return `<div style="height:1px;background:${D.termHeader};margin:8px 0;"></div>`;
+    return `<div style="color:${D.termText};margin-bottom:3px;">${l.text}</div>`;
   }).join('');
+
+  const height = opts.height || null;
+  const flexStyle = fullHeight ? 'flex:1;display:flex;flex-direction:column;' : '';
+  const heightStyle = height ? `height:${height};` : '';
+  const contentFlexStyle = fullHeight ? 'flex:1;' : '';
 
   return `
     <div style="
@@ -104,11 +113,13 @@ function terminal(title, lines, opts = {}) {
       overflow: hidden;
       width: ${width};
       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      ${flexStyle}${heightStyle}
     ">
       <div style="
         background: ${D.termHeader};
         padding: 14px 20px;
         display: flex; align-items: center; gap: 8px;
+        flex-shrink: 0;
       ">
         <div style="width:12px;height:12px;border-radius:50%;background:${D.termDotRed};"></div>
         <div style="width:12px;height:12px;border-radius:50%;background:${D.termDotYellow};"></div>
@@ -116,10 +127,11 @@ function terminal(title, lines, opts = {}) {
         <span style="color:${D.termComment};font-size:14px;margin-left:8px;font-family:${F.code};">${title}</span>
       </div>
       <div style="
-        padding: 24px 28px;
+        padding: 28px 32px;
         font-family: ${F.code};
-        font-size: ${DESIGN.fontSize.code};
-        line-height: 1.8;
+        font-size: ${fontSize};
+        line-height: ${lineHeight};
+        ${contentFlexStyle}
       ">${lineHTML}</div>
     </div>
   `;
@@ -183,8 +195,10 @@ function slideWrapper(mode, content) {
   const isAccent = mode === 'accent';
   const bg = isAccent ? D.accentBg : D.warmBg;
 
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8">${fontLink}<style>${baseCSS}</style></head><body>
-    <div style="
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8">${fontLink}<style>${baseCSS}
+    .slide-root > * { min-height: 0; }
+  </style></head><body>
+    <div class="slide-root" style="
       width: ${DESIGN.width}px; height: ${DESIGN.height}px;
       background: ${bg};
       display: flex; flex-direction: column;
