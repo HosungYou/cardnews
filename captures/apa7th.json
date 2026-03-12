@@ -1,0 +1,56 @@
+{
+  "description": "APA 7th Research Proposal card news — capture targets",
+  "captures": [
+    {
+      "name": "claude-code-homepage",
+      "type": "url",
+      "url": "https://claude.ai/code",
+      "viewport": "1080x810",
+      "delay": 2000,
+      "comment": "Claude Code landing page — used for context"
+    },
+    {
+      "name": "anthropic-skills-docs",
+      "type": "url",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/skills",
+      "viewport": "1080x810",
+      "delay": 2000,
+      "comment": "Anthropic docs showing Skills feature"
+    },
+    {
+      "name": "terminal-prompt",
+      "type": "terminal",
+      "viewport": "920x480",
+      "prompt": [
+        "claude"
+      ],
+      "output": [
+        "",
+        "  \"Write a research proposal on AI-assisted",
+        "   feedback in higher education.",
+        "   APA 7th format. Include title page,",
+        "   abstract, and references.\"",
+        "",
+        "# Claude activates docx Skill automatically..."
+      ]
+    },
+    {
+      "name": "terminal-generating",
+      "type": "terminal",
+      "viewport": "920x560",
+      "prompt": [],
+      "output": [
+        "✓ Creating proposal.docx...",
+        "",
+        "✓ Title page — Running head, affiliations, author note",
+        "✓ Abstract — 250 words with keywords",
+        "✓ Headings — Level 1-3, bold, centered/flush left",
+        "✓ Body — Introduction, lit review, method, expected results",
+        "✓ References — Hanging indent, DOI links",
+        "✓ Format — 12pt Times New Roman, 1\" margins, double-spaced",
+        "",
+        "✓ Done — proposal.docx saved to ~/research-project/"
+      ]
+    }
+  ]
+}

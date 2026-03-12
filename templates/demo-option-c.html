@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+KR:wght@400;600;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  }
+
+  /* === OPTION C: Diverga Brand (Purple/Violet) === */
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    background: #0D0D1A;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Gradient orbs */
+  .orb-1 {
+    position: absolute;
+    top: -150px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .orb-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .series-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(236,72,153,0.08));
+    border: 1px solid rgba(124,58,237,0.25);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .series-tag .text {
+    background: linear-gradient(135deg, #A78BFA, #EC4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .series-tag .icon {
+    font-size: 18px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124,58,237,0.2);
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #A78BFA;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main-title {
+    font-size: 66px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main-title .highlight {
+    background: linear-gradient(135deg, #A78BFA, #EC4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-cards {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    align-items: center;
+  }
+
+  .feature-card {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .feature-card.active {
+    background: linear-gradient(180deg, rgba(124,58,237,0.12) 0%, rgba(124,58,237,0.03) 100%);
+    border: 1px solid rgba(124,58,237,0.3);
+  }
+
+  .feature-card .icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+  }
+
+  .feature-card .name {
+    color: rgba(255,255,255,0.8);
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .feature-card.active .name {
+    color: #A78BFA;
+  }
+
+  .feature-card .desc {
+    color: rgba(255,255,255,0.35);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .arrow-connector {
+    color: rgba(124,58,237,0.4);
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .author-name {
+    color: rgba(255,255,255,0.5);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .author-handle {
+    color: rgba(255,255,255,0.25);
+    font-size: 14px;
+  }
+
+  .page-indicator {
+    display: flex;
+    gap: 6px;
+  }
+
+  .page-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .page-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #7C3AED, #EC4899);
+  }
+
+  .option-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 800;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="option-label">OPTION C: Diverga Brand</div>
+  <div class="orb-1"></div>
+  <div class="orb-2"></div>
+
+  <div class="series-tag">
+    <span class="icon">◈</span>
+    <span class="text">diverga-research</span>
+  </div>
+
+  <div class="badge">SERIES 1 · Researcher Toolkit</div>
+
+  <h1 class="main-title">
+    Generate an <span class="highlight">APA 7th</span><br>
+    Research Proposal<br>
+    in 30 Seconds
+  </h1>
+
+  <p class="subtitle">
+    One command. Perfect formatting. Ready to submit.
+  </p>
+
+  <div class="feature-cards">
+    <div class="feature-card">
+      <span class="icon">💬</span>
+      <span class="name">Describe</span>
+      <span class="desc">Tell Claude your<br>research topic</span>
+    </div>
+    <span class="arrow-connector">→</span>
+    <div class="feature-card active">
+      <span class="icon">⚡</span>
+      <span class="name">Generate</span>
+      <span class="desc">docx Skill creates<br>APA 7th format</span>
+    </div>
+    <span class="arrow-connector">→</span>
+    <div class="feature-card">
+      <span class="icon">📄</span>
+      <span class="name">Submit</span>
+      <span class="desc">Ready-to-submit<br>proposal.docx</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="author-avatar">D</div>
+      <div class="author-info">
+        <span class="author-name">Diverga by Hosung You</span>
+        <span class="author-handle">Penn State · College of Education</span>
+      </div>
+    </div>
+    <div class="page-indicator">
+      <div class="page-dot active"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+      <div class="page-dot"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

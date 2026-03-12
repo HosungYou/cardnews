@@ -1,0 +1,30 @@
+{
+  "name": "cardnews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate:en": "node src/generate.js --slide=slides/apa7th-proposal --lang=en --out=output/apa7th-en",
+    "generate:kr": "node src/generate.js --slide=slides/apa7th-proposal --lang=kr --out=output/apa7th-kr",
+    "generate": "npm run generate:en && npm run generate:kr",
+    "capture": "node src/capture.js --config=captures/apa7th.json",
+    "build": "npm run capture && npm run generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HosungYou/cardnews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HosungYou/cardnews/issues"
+  },
+  "homepage": "https://github.com/HosungYou/cardnews#readme",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.58.2",
+    "puppeteer": "^24.39.0"
+  }
+}

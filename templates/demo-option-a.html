@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+KR:wght@400;600;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  }
+
+  /* === OPTION A: Deep Scholar === */
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    background: linear-gradient(165deg, #0F1B33 0%, #1B2A4A 40%, #1F3056 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative elements */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,168,67,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D4A843, #E8C56D, #D4A843);
+  }
+
+  .series-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(212,168,67,0.12);
+    border: 1px solid rgba(212,168,67,0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: #D4A843;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+  }
+
+  .series-tag .dot {
+    width: 8px;
+    height: 8px;
+    background: #D4A843;
+    border-radius: 50%;
+  }
+
+  .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin-bottom: 30px;
+    max-width: 900px;
+  }
+
+  .main-title .highlight {
+    color: #D4A843;
+  }
+
+  .subtitle {
+    font-size: 28px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+
+  .visual-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .icon-cluster {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+  }
+
+  .icon-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.3s;
+  }
+
+  .icon-card.featured {
+    background: rgba(212,168,67,0.08);
+    border: 1px solid rgba(212,168,67,0.25);
+    transform: translateY(-20px);
+    padding: 40px;
+  }
+
+  .icon-card .emoji {
+    font-size: 56px;
+  }
+
+  .icon-card.featured .emoji {
+    font-size: 72px;
+  }
+
+  .icon-card .label {
+    color: rgba(255,255,255,0.5);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .icon-card.featured .label {
+    color: #D4A843;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4A843, #8B6914);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .author-name {
+    color: rgba(255,255,255,0.5);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .page-indicator {
+    color: rgba(255,255,255,0.3);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .option-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #D4A843;
+    color: #0F1B33;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="option-label">OPTION A: Deep Scholar</div>
+
+  <div class="series-tag">
+    <span class="dot"></span>
+    diverga-research
+  </div>
+
+  <h1 class="main-title">
+    Generate an <span class="highlight">APA 7th</span><br>
+    Research Proposal<br>
+    in 30 Seconds
+  </h1>
+
+  <p class="subtitle">
+    One command. Perfect formatting. Ready to submit.
+  </p>
+
+  <div class="visual-area">
+    <div class="icon-cluster">
+      <div class="icon-card">
+        <span class="emoji">💬</span>
+        <span class="label">Prompt</span>
+      </div>
+      <div class="icon-card">
+        <span class="emoji">→</span>
+        <span class="label"></span>
+      </div>
+      <div class="icon-card featured">
+        <span class="emoji">📄</span>
+        <span class="label">APA 7th .docx</span>
+      </div>
+      <div class="icon-card">
+        <span class="emoji">→</span>
+        <span class="label"></span>
+      </div>
+      <div class="icon-card">
+        <span class="emoji">✅</span>
+        <span class="label">Submit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="author">
+      <div class="author-avatar">D</div>
+      <span class="author-name">Diverga by Hosung You</span>
+    </div>
+    <span class="page-indicator">1 / 8</span>
+  </div>
+</div>
+</body>
+</html>
