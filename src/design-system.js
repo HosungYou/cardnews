@@ -1,6 +1,7 @@
 /**
- * Diverga Card News Design System v3 — "Academic Editorial"
+ * Diverga Card News Design System v4 — "Academic Editorial Bold"
  * Warm-only mode with terracotta accent blocks
+ * 2x font sizes for mobile feed impact
  * 60% academic journal + 30% 임지은 marketer bold + 10% DBpia accessibility
  */
 
@@ -58,32 +59,32 @@ const DESIGN = {
   // Typography
   fonts: {
     heading: "'Inter', 'Noto Sans KR', -apple-system, sans-serif",
-    body: "Georgia, 'Noto Serif KR', 'Apple SD Gothic Neo', serif",
+    body: "'Source Serif 4', 'Noto Serif KR', Georgia, serif",
     code: "'SF Mono', 'Fira Code', 'Menlo', monospace",
   },
 
-  // Font sizes — BIG for mobile feed visibility
+  // Font sizes — 2x for mobile feed impact
   fontSize: {
-    hero: '84px',       // Hook slides, key messages
-    title: '72px',      // Section titles
-    subtitle: '36px',   // Subtitles
-    body: '28px',       // Body text
-    bodyLarge: '32px',  // Emphasized body
-    caption: '22px',    // Captions, tags
-    code: '22px',       // Code blocks
-    small: '18px',      // Footer, meta
-    tag: '20px',        // Series tag
+    hero: '140px',      // Hook slides, key messages
+    title: '120px',     // Section titles
+    subtitle: '64px',   // Subtitles
+    body: '48px',       // Body text
+    bodyLarge: '56px',  // Emphasized body
+    caption: '40px',    // Captions, tags
+    code: '44px',       // Code blocks
+    small: '32px',      // Footer, meta
+    tag: '36px',        // Series tag
   },
 
   // Spacing
   spacing: {
-    padding: '48px',
-    paddingLarge: '56px',
-    gap: '16px',
-    gapLarge: '24px',
-    borderRadius: '16px',
-    borderRadiusSmall: '8px',
-    borderRadiusLarge: '24px',
+    padding: '52px',
+    paddingLarge: '60px',
+    gap: '20px',
+    gapLarge: '28px',
+    borderRadius: '20px',
+    borderRadiusSmall: '12px',
+    borderRadiusLarge: '28px',
   },
 
   // Mascot
